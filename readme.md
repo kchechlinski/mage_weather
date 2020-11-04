@@ -1,5 +1,5 @@
-#Weather module
-###Installation
+# Weather module
+### Installation
 Copy code to your `/app/code` folder 
 
 Enable module `bin/magento module:enable Codeal:Weather`
