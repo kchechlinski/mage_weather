@@ -16,3 +16,6 @@ Roadmap:
 v 1.1
 - apiKey and other config data will be moved to core_config_data
 - fetch controller will be removed or transformed into console command
+
+![Screen1](https://raw.githubusercontent.com/kchechlinski/images/main/mage_weather_screen1.png)
+![Screen2](https://raw.githubusercontent.com/kchechlinski/images/main/mage_weather_screen2.png)
