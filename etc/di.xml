@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Codeal\Weather\Api\WeatherApiConnectorManagementInterface"
+                type="Codeal\Weather\Service\Api\OpenWeatherApiConnectorService"
+    />
+    <preference for="Codeal\Weather\Api\WeatherManagementInterface"
+                type="Codeal\Weather\Service\Weather\WeatherService"
+    />
+    <preference for="Codeal\Weather\Model\Weather\Parser\FetchedDataParserInterface"
+                type="Codeal\Weather\Model\Weather\Parser\OpenWeatherFetchedDataParser"
+    />
+    <preference for="Codeal\Weather\Api\Data\WeatherInterface"
+                type="Codeal\Weather\Model\Data\Weather"
+    />
+    <preference for="Codeal\Weather\Api\WeatherRepositoryInterface"
+                type="Codeal\Weather\Model\WeatherRepository"
+    />
+
+    <type name="Codeal\Weather\Api\WeatherApiConnectorManagementInterface">
+        <arguments>
+            <argument name="apiUrl" xsi:type="string">
+                https://api.openweathermap.org/data/2.5/weather
+            </argument>
+            <argument name="city" xsi:type="string">
+                Lublin
+            </argument>
+            <argument name="apiKey" xsi:type="string">
+                803a73c9eebf2fd54629a33e488f7476
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Codeal\Weather\Model\ResourceModel\Weather\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">codeal_weather_weather</argument>
+            <argument name="resourceModel" xsi:type="string">Codeal\Weather\Model\ResourceModel\Weather\Collection</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="codeal_weather_weather_listing_data_source" xsi:type="string">Codeal\Weather\Model\ResourceModel\Weather\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

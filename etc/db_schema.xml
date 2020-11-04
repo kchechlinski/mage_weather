@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table comment="codeal_weather_weather Table" engine="innodb" name="codeal_weather_weather" resource="default">
+        <column comment="Entity Id" identity="true" name="weather_id" nullable="false" padding="10" unsigned="true" xsi:type="smallint"/>
+        <column comment="Temperature" name="temperature" xsi:type="decimal" precision="6" scale="2" nullable="true"/>
+        <column comment="Wind speed" name="wind_speed" xsi:type="decimal" precision="6" scale="2" nullable="true"/>
+        <column comment="Wind direction" name="wind_direction" xsi:type="int" padding="3" nullable="true" />
+        <column comment="Visibility" name="visibility" xsi:type="int" padding="8" nullable="true" />
+        <column comment="Weather description" name="description" xsi:type="text" nullable="true" />
+        <column comment="Weather icon" name="icon" xsi:type="varchar" length="30" nullable="true" />
+        <column name="creation_time" xsi:type="timestamp" default="CURRENT_TIMESTAMP" on_update="false" comment="Creation date and time" />
+        <constraint referenceId="PRIMARY" xsi:type="primary">
+            <column name="weather_id"/>
+        </constraint>
+    </table>
+</schema>

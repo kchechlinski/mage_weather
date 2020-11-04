@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="codeal">
+        <job instance="Codeal\Weather\Cron\WeatherFetcher" method="execute" name="codeal_weather_fetcher_cron">
+            <schedule>*\10 * * * *</schedule>
+        </job>
+    </group>
+</config>

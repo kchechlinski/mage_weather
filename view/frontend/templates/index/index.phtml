@@ -1,0 +1,26 @@
+<?php
+/** @var Magento\Framework\View\Element\Template $block */
+/** @var \Codeal\Weather\ViewModel\WeatherViewModel $viewModel */
+$viewModel = $block->getViewModel();
+/** @var \Codeal\Weather\Api\Data\WeatherInterface $weather */
+$weather = $viewModel->getWeather();
+?>
+<div>
+    <h1><?= __('Weather in Lublin'); ?></h1>
+    <dl>
+        <dd><?= __('Temperature') ?></dd>
+        <dt><?= $block->escapeHtml($weather->getTemperature()); ?></dt>
+        <dd><?= __('Wind speed') ?></dd>
+        <dt><?= $block->escapeHtml($weather->getWindSpeed()); ?></dt>
+        <dd><?= __('Wind Direction') ?></dd>
+        <dt><?= $block->escapeHtml($weather->getWindDirection()); ?></dt>
+        <dd><?= __('Visibility') ?></dd>
+        <dt><?= $block->escapeHtml($weather->getVisibility()); ?></dt>
+        <dd><?= __('Description') ?></dd>
+        <dt><?= $block->escapeHtml($weather->getDescription()); ?></dt>
+        <dd><?= __('Icon') ?></dd>
+        <dt><?= $block->escapeHtml($weather->getIcon()); ?></dt>
+        <dd><?= __('Time') ?></dd>
+        <dt><?= $block->escapeHtml($weather->getCreationTime()); ?></dt>
+    </dl>
+</div>

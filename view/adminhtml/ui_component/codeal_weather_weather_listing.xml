@@ -1,0 +1,92 @@
+<?xml version="1.0" ?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">codeal_weather_weather_listing.codeal_weather_weather_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <spinner>codeal_weather_weather_columns</spinner>
+        <deps>
+            <dep>codeal_weather_weather_listing.codeal_weather_weather_listing_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource component="Magento_Ui/js/grid/provider" name="codeal_weather_weather_listing_data_source">
+        <settings>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <aclResource>Codeal_Weather::Weather</aclResource>
+        <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider" name="codeal_weather_weather_listing_data_source">
+            <settings>
+                <requestFieldName>weather_idid</requestFieldName>
+                <primaryFieldName>weather_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <settings>
+            <sticky>true</sticky>
+        </settings>
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filters name="listing_filters"/>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+    <columns name="codeal_weather_weather_columns">
+        <selectionsColumn name="ids">
+            <settings>
+                <indexField>weather_id</indexField>
+            </settings>
+        </selectionsColumn>
+        <column name="weather_id">
+            <settings>
+                <filter>text</filter>
+                <sorting>desc</sorting>
+                <label translate="true">ID</label>
+            </settings>
+        </column>
+       <column name="temperature">
+           <settings>
+               <label translate="true">Temperature</label>
+           </settings>
+       </column>
+        <column name="wind_speed">
+            <settings>
+                <label translate="true">Wind speed</label>
+            </settings>
+        </column>
+        <column name="wind_direction">
+            <settings>
+                <label translate="true">Wind direction</label>
+            </settings>
+        </column>
+        <column name="visibility">
+            <settings>
+                <label translate="true">Visibility</label>
+            </settings>
+        </column>
+        <column name="description">
+            <settings>
+                <label translate="true">Description</label>
+                <filter>text</filter>
+            </settings>
+        </column>
+        <column name="icon">
+            <settings>
+                <label translate="true">Icon</label>
+                <filter>text</filter>
+            </settings>
+        </column>
+        <column name="creation_time">
+            <settings>
+                <label translate="true">Creation time</label>
+                <filter>dateRange</filter>
+                <timezone>false</timezone>
+                <dateFormat>MMM d, y</dateFormat>
+                <dataType>date</dataType>
+                <skipTimeZoneConversion>true</skipTimeZoneConversion>
+                <sortable>true</sortable>
+            </settings>
+        </column>
+    </columns>
+</listing>
